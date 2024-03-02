@@ -1,6 +1,7 @@
 package com.example.backendrestaurant.models;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -62,10 +63,12 @@ public class Reservation {
 	public void setReservationStatus(ReservationStatus reservationStatus) {
 		this.reservationStatus = reservationStatus;
 	}
-	public User getClient() {
+
+
+	public User getUser() {
 		return user;
 	}
-	public void setClient(User user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 	public Reservation(Long id, String tableType, String description, Date dateTime,

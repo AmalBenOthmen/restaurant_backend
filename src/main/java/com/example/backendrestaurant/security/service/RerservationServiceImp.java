@@ -28,15 +28,14 @@ public class RerservationServiceImp implements ReservationService{
 	@Override
 	public ReservationDto postReservation(ReservationDto reservationDto) {
 
-		Optional<User>optionalClient=userRepository.findById(reservationDto.getCustomerId());
-		//Optional<Client> optionalClient = clientRepository.findById(String.valueOf(reservationDto.getCustomerId()));
+		Optional<User>optionalUser=userRepository.findById(reservationDto.getCustomerId());
 
-		if(optionalClient.isPresent()) {
+		if(optionalUser.isPresent()) {
 			Reservation reservation=new Reservation();
 			reservation.setTableType(reservationDto.getTableType());
-			reservation.setDateTime(reservationDto.getDateTime());
+			reservation.setDateTime(reservationDto.getDateTime());;
 			reservation.setDescription(reservationDto.getDescription());
-			reservation.setClient(optionalClient.get());
+			reservation.setUser(optionalUser.get());
 			reservation.setReservationStatus(ReservationStatus.PENDING);
 			Reservation postReservation= reservationRepository.save(reservation);
 			ReservationDto postReservationDto =new ReservationDto();
