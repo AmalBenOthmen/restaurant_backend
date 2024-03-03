@@ -1,8 +1,9 @@
 package com.example.backendrestaurant.security.service;
 
 import com.example.backendrestaurant.dto.ReservationDto;
+import com.example.backendrestaurant.models.Reservation;
 
 public interface ReservationService {
-	ReservationDto postReservation(ReservationDto reservationDto);
+	Reservation postReservation(ReservationDto reservationDto);
 
 }
