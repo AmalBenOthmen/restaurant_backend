@@ -2,38 +2,63 @@ package com.example.backendrestaurant.models;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class MenuItem {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long idMenu;
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
   private String name;
 
   private String description;
-  private double prix;
+  private float prix;
 
-  @ManyToOne
-  @JoinColumn(name = "categorie_id")
-  private Categorie categorie;
-  public void setIdMenu(Long idMenu) {
-    this.idMenu = idMenu;
+  @ManyToMany(mappedBy = "foods")
+  private Set<Categorie> categories = new HashSet<>();
+
+
+  public void setIdMenu(Long id) {
+    this.id = id;
   }
 
   public void setName(String name) {
     this.name = name;
   }
 
-  public void setCategorie(Categorie categorie) {
-    this.categorie = categorie;
-  }
-
-  public void setPrix(double prix) {
+  public void setPrix(float prix) {
     this.prix = prix;
   }
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public float getPrix() {
+    return prix;
+  }
+
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Set<Categorie> getCategories() {
+    return categories;
   }
 }
 
