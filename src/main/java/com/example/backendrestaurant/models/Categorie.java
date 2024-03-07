@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Categorie {
+public class  Categorie {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -47,3 +47,4 @@ public class Categorie {
     this.menuItems = menuItems;
   }
 }
+
