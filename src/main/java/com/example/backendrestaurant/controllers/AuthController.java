@@ -100,8 +100,7 @@ public class AuthController {
                         Role adminRole = roleRepository.findByName(ERole.ADMIN)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
-                        break; // Ajouter cette instruction pour sortir du switch après l'ajout du rôle "admin"
-
+                        break; 
                     default:
                         Role userRole = roleRepository.findByName(ERole.CLIENT)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
@@ -116,4 +115,5 @@ public class AuthController {
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
+
 }

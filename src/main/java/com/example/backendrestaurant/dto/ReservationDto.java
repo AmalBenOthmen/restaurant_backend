@@ -12,6 +12,8 @@ public class ReservationDto {
 	private Date dateTime;
 	private ReservationStatus reservationStatus  ;
 	private Long customerId;
+	private String customerName;
+	
 	public Long getId() {
 		return id;
 	}
@@ -47,6 +49,13 @@ public class ReservationDto {
 	}
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
+	}
+	
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 	@Override
 	public String toString() {
