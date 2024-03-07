@@ -15,5 +15,5 @@ public interface MenuItemService {
 
   void deleteItemById(Long id);
 
-  MenuItem addFoodRoCategories(Long id, Set<Long> categoryIds);
+  MenuItem addFoodToCategories(Long id, Set<Long> categoryIds);
 }

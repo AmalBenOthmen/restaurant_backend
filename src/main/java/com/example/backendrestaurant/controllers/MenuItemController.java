@@ -48,7 +48,7 @@ public class MenuItemController {
 
   @PostMapping("/{foodId}/categories")
   public ResponseEntity<MenuItem> addFoodToCategories(@PathVariable Long foodId, @RequestBody Set<Long> categoryIds) {
-    MenuItem food = itemService.addFoodRoCategories(foodId, categoryIds);
+    MenuItem food = itemService.addFoodToCategories(foodId, categoryIds);
     return ResponseEntity.ok(food);
   }
 }

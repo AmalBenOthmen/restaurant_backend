@@ -61,11 +61,16 @@ public class MenuItemServiceImp implements MenuItemService{
   }
 
   @Transactional
-  public MenuItem addFoodRoCategories(Long id, Set<Long> categoryIds) {
-    MenuItem food = menuItemRepository.findById(id).orElseThrow(() -> new RuntimeException("Food not found"));
+  public MenuItem addFoodToCategories(Long itemId, Set<Long> categoryIds) {
+    MenuItem food = menuItemRepository.findById(itemId)
+      .orElseThrow(() -> new RuntimeException("Food not found with id: " + itemId));
+
+    // Clear existing categories to avoid duplicates
+    food.getCategories().clear();
+
     for (Long categoryId : categoryIds) {
       Categorie category = categorieRepository.findById(categoryId)
-        .orElseThrow(() -> new RuntimeException("Category not found"));
+        .orElseThrow(() -> new RuntimeException("Category not found with id: " + categoryId));
       food.getCategories().add(category);
       category.getFoods().add(food);
     }

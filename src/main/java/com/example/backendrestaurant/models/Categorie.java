@@ -10,7 +10,7 @@ import java.util.Set;
 public class Categorie {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long idCategory;
+  private Long id;
   private String name;
   private String description;
 
@@ -21,11 +21,11 @@ public class Categorie {
   private Set<MenuItem> foods = new HashSet<>();
 
   public void setId(Long idCategory) {
-    this.idCategory = idCategory;
+    this.id = idCategory;
   }
 
   public Long getId() {
-    return idCategory;
+    return id;
   }
 
   public String getName() {
