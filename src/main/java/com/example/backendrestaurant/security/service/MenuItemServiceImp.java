@@ -44,7 +44,7 @@ public class MenuItemServiceImp implements MenuItemService{
       existingItem.setName(item.getName());
     }
 
-      existingItem.setPrix(item.getPrix());
+      existingItem.setPrice(item.getPrice());
 
       if (Objects.nonNull(item.getDescription()) && !item.getDescription().isEmpty()) {
       existingItem.setDescription(item.getDescription());

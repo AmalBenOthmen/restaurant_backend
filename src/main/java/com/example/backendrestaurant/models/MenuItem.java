@@ -14,22 +14,17 @@ public class MenuItem {
   private String name;
 
   private String description;
-  private float prix;
+  private int price;
 
   @ManyToMany(mappedBy = "foods")
   private Set<Categorie> categories = new HashSet<>();
-
-
-  public void setIdMenu(Long id) {
-    this.id = id;
-  }
 
   public void setName(String name) {
     this.name = name;
   }
 
-  public void setPrix(float prix) {
-    this.prix = prix;
+  public void setPrice(int price) {
+    this.price = price;
   }
 
   public void setDescription(String description) {
@@ -48,8 +43,8 @@ public class MenuItem {
     return description;
   }
 
-  public float getPrix() {
-    return prix;
+  public int getPrice() {
+    return price;
   }
 
 
