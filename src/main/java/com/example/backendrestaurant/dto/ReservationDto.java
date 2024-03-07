@@ -48,6 +48,12 @@ public class ReservationDto {
 	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
+	@Override
+	public String toString() {
+		return "ReservationDto [id=" + id + ", tableType=" + tableType + ", description=" + description + ", dateTime="
+				+ dateTime + ", reservationStatus=" + reservationStatus + ", customerId=" + customerId + "]";
+	}
+	
 
 	
 	
