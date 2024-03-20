@@ -2,7 +2,9 @@ package com.example.backendrestaurant.models;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Categorie {
@@ -12,11 +14,14 @@ public class Categorie {
   private String name;
   private String description;
 
-  @OneToMany(mappedBy = "categorie",cascade = CascadeType.ALL)
-  private List<MenuItem> menuItems;
+  @ManyToMany
+  @JoinTable(name = "food_category",
+              joinColumns = @JoinColumn(name = "category_id"),
+              inverseJoinColumns = @JoinColumn(name = "id"))
+  private Set<MenuItem> foods = new HashSet<>();
 
-  public void setId(Long id) {
-    this.id = id;
+  public void setId(Long idCategory) {
+    this.id = idCategory;
   }
 
   public Long getId() {
@@ -39,11 +44,7 @@ public class Categorie {
     this.description = description;
   }
 
-  public List<MenuItem> getMenuItems() {
-    return menuItems;
-  }
-
-  public void setMenuItems(List<MenuItem> menuItems) {
-    this.menuItems = menuItems;
+  public Set<MenuItem> getFoods() {
+    return foods;
   }
 }
