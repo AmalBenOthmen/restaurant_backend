@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Categorie {
+public class  Categorie {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -48,3 +48,4 @@ public class Categorie {
     return foods;
   }
 }
+
