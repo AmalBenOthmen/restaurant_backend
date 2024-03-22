@@ -70,6 +70,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/api/auth/**").permitAll()
 
+
             			.requestMatchers("/api/client/**").permitAll()
 
                                 .requestMatchers("/api/categorie/**").permitAll()
@@ -81,6 +82,12 @@ public class WebSecurityConfig {
 
 
                              .requestMatchers("/api/test/**").permitAll()
+
+
+
+                        .requestMatchers("/api/menuitems/**").permitAll()
+
+
                                 .anyRequest().authenticated()
                 );
 
