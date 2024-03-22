@@ -33,7 +33,7 @@ public class MenuItemController {
 
   // http://localhost:8021/update-item/{id}
   @PutMapping("/update-item/{id}")
-  public MenuItem updateItem(@RequestBody MenuItem item,@PathVariable("id") Long id)
+  public MenuItem updateItem(@RequestBody MenuItem item, @PathVariable("id") Long id)
   {
     return itemService.updateItem(item,id);
   }

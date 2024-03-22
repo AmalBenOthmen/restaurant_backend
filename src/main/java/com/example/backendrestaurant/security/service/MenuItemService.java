@@ -11,7 +11,7 @@ public interface MenuItemService {
 
   List<MenuItem> itemsList() ;
 
-  MenuItem updateItem(MenuItem item,Long id);
+  MenuItem updateItem(MenuItem item, Long id);
 
   void deleteItemById(Long id);
 
