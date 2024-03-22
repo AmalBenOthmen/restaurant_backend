@@ -6,6 +6,7 @@ import java.util.Date;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.example.backendrestaurant.dto.ReservationDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -27,7 +28,7 @@ public class Reservation {
 	private Date dateTime;
 	private ReservationStatus reservationStatus  ;
 	@ManyToOne(fetch=FetchType.LAZY,optional =false )
-	@JoinColumn(name="client_id", nullable = false)
+	@JoinColumn(name="user_id", nullable = false)
 	@OnDelete(action=OnDeleteAction.CASCADE)
 	@JsonIgnore
 	private User user ;
@@ -85,6 +86,22 @@ public class Reservation {
 	public String toString() {
 		return "Reservation [id=" + id + ", tableType=" + tableType + ", description=" + description + ", dateTime="
 				+ dateTime + ", reservationStatus=" + reservationStatus + ", user=" + user + "]";
+	}
+	
+	public ReservationDto getReservationDto() {
+		ReservationDto reservationDto = new ReservationDto();
+		reservationDto.setId(id);
+		reservationDto.setTableType(tableType);
+		reservationDto.setReservationStatus(reservationStatus);
+		reservationDto.setDescription(description);
+		reservationDto.setDateTime(dateTime);
+		reservationDto.setCustomerId(user.getId());
+		reservationDto.setCustomerName(user.getUsername());
+
+		
+		return reservationDto;
+
+		
 	}
 	
 	

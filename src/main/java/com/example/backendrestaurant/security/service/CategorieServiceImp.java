@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class CategorieServiceImp implements CatgeorieService {
@@ -29,6 +30,7 @@ public class CategorieServiceImp implements CatgeorieService {
   public List<Categorie> CategorieList() {
     return (List<Categorie>) categorieRepository.findAll();
   }
+
 
   @Override
   public Categorie updateCategorie(Categorie categorie, Long id) throws RuntimeException {
@@ -53,7 +55,10 @@ public class CategorieServiceImp implements CatgeorieService {
     categorieRepository.deleteById(id);
   }
 
-
+  @Override
+  public List<Categorie> getCategoriesByName(String name) {
+    return (List<Categorie>) categorieRepository.findAllByNameContaining(name);
+  }
 
 
 }

@@ -1,6 +1,9 @@
 package com.example.backendrestaurant.security.service;
 
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +49,36 @@ public class RerservationServiceImp implements ReservationService{
 
 	     return null;
 	 }
+
+	@Override
+	public List<ReservationDto> getReservationsByUser(Long customerId) {
+		return reservationRepository.findAllByUserId(customerId).stream().map(Reservation::getReservationDto).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<ReservationDto> getReservations() {
+		return reservationRepository.findAll().stream().map(Reservation::getReservationDto).collect(Collectors.toList());
+	}
+
+	@Override
+	public ReservationDto changeReservationStatus(long reservationId, String status) {
+		Optional<Reservation>optionalReservation= reservationRepository.findById(reservationId);
+		if (optionalReservation.isPresent()) {
+			Reservation existingReservation=optionalReservation.get();
+			if (Objects.equals(status, "Approve")) {
+				existingReservation.setReservationStatus(ReservationStatus.APPROVED);
+			}
+			else {
+				existingReservation.setReservationStatus(ReservationStatus.DISAPPROVE);
+
+			}
+			Reservation updateReservation= reservationRepository.save(existingReservation);
+			ReservationDto updaReservationDto = new ReservationDto();
+			updateReservation.setId(updateReservation.getId());
+			return updaReservationDto;
+		}
+		return null;
+	}
 
 
 }
