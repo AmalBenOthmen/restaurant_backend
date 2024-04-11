@@ -17,13 +17,13 @@ public class MenuController {
   @Autowired
   private MenuService menuService;
 
-  @PostMapping
+  @PostMapping("/addMenu")
   public Menu addMenu(@RequestBody MenuItem item, @RequestParam Long categoryId) {
     Categorie categorie = new Categorie();
     return menuService.addMenu(item, categorie);
   }
 
-  @GetMapping
+  @GetMapping("/getMenu")
   public List <Menu> getAllMenus() {
     return menuService.MenuList();
   }
