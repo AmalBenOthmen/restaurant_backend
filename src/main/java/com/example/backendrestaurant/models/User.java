@@ -3,7 +3,6 @@ package com.example.backendrestaurant.models;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -33,7 +32,10 @@ public class User {
     @Size(max = 120)
     private String password;
 
-    private String img;
+    @Lob
+	@Column(columnDefinition = "MEDIUMBLOB")
+	private String photo;
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(  name = "user_roles",
@@ -44,11 +46,11 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String password , String img) {
+    public User(String username, String email, String password , String photo) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.img=img;
+        this.photo=photo;
     }
     public User(String username, String email, String password ) {
         this.username = username;
@@ -97,11 +99,13 @@ public class User {
         this.roles = roles;
     }
 
-    public String getImg() {
-        return img;
-    }
+	public String getPhoto() {
+		return photo;
+	}
 
-    public void setImg(String img) {
-        this.img = img;
-    }
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+
 }
