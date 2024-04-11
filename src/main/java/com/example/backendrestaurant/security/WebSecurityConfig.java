@@ -92,7 +92,6 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
             			      .requestMatchers("/api/client/**").permitAll()
                         .requestMatchers("/api/categorie/**").permitAll()
                         .requestMatchers("/api/menuitems/**").permitAll()
-                          .requestMatchers("/api/menuitems/all-items").permitAll() // Allow unauthenticated access to this endpoint
                           .requestMatchers("/api/test/**").permitAll()
                           .requestMatchers("/api/menu/**").permitAll()
                                 .anyRequest().authenticated()
