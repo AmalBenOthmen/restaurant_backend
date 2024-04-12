@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -22,11 +23,15 @@ public class MenuController {
     Categorie categorie = new Categorie();
     return menuService.addMenu(item, categorie);
   }
-
   @GetMapping("/getMenu")
+  public List<Categorie> getMenuWithCategories() {
+    return menuService.getMenuWithCategories();
+  }
+
+  /*@GetMapping("/getMenu")
   public List <Menu> getAllMenus() {
     return menuService.MenuList();
-  }
+  }*/
 
   @PutMapping("/{id}")
   public Menu updateMenu(@RequestBody Menu menu, @PathVariable Long id) {

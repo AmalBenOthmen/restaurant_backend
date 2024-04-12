@@ -3,16 +3,32 @@ package com.example.backendrestaurant.security.service;
 import com.example.backendrestaurant.models.Categorie;
 import com.example.backendrestaurant.models.Menu;
 import com.example.backendrestaurant.models.MenuItem;
+import com.example.backendrestaurant.repository.CategorieRepository;
+import com.example.backendrestaurant.repository.MenuItemRepository;
 import com.example.backendrestaurant.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 @Service
 public class MenuServiceImp implements MenuService{
   @Autowired
   private MenuRepository menuRepository;
 
+  @Autowired
+  private MenuItemRepository menuItemRepository;
+
+  @Autowired
+  private CategorieRepository categoryRepository;
+
+  @Override
+  public List<Categorie> getMenuWithCategories() {
+    return categoryRepository.findAll();
+
+  }
 
   @Override
   public Menu addMenu(MenuItem item, Categorie categorie) {
@@ -41,4 +57,10 @@ public class MenuServiceImp implements MenuService{
     menuRepository.deleteById(id);
 
   }
+
+
+
+
+
+
 }
