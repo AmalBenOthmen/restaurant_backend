@@ -18,7 +18,9 @@ public class MenuItem {
 
   @ManyToMany(mappedBy = "foods")
   private Set<Categorie> categories = new HashSet<>();
-
+  @ManyToOne
+  @JoinColumn(name = "menu_id")
+  private Menu menu;
   public void setName(String name) {
     this.name = name;
   }
@@ -54,6 +56,18 @@ public class MenuItem {
 
   public Set<Categorie> getCategories() {
     return categories;
+  }
+
+  public void setCategories(Set<Categorie> categories) {
+    this.categories = categories;
+  }
+
+  public Menu getMenu() {
+    return menu;
+  }
+
+  public void setMenu(Menu menu) {
+    this.menu = menu;
   }
 }
 
