@@ -78,6 +78,7 @@ public class WebSecurityConfig {
                          .requestMatchers("/api/client/**").permitAll()
                         .requestMatchers("/api/categorie/**").permitAll()
                         .requestMatchers("/api/menuitems/**").permitAll()
+                        .requestMatchers("/chef/**").permitAll()
 
 
             			
