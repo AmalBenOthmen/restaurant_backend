@@ -92,6 +92,7 @@ public class WebSecurityConfig {
 
 
                         .requestMatchers("/api/menuitems/**").permitAll()
+                        .requestMatchers("/chef/**").permitAll()
 
 
 
