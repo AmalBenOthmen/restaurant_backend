@@ -10,11 +10,9 @@ public class MenuItem {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-
   private String name;
-
   private String description;
-  private int price;
+  private Long price;
 
   @ManyToMany(mappedBy = "foods")
   private Set<Categorie> categories = new HashSet<>();
@@ -25,7 +23,7 @@ public class MenuItem {
     this.name = name;
   }
 
-  public void setPrice(int price) {
+  public void setPrice(Long price) {
     this.price = price;
   }
 
@@ -45,7 +43,7 @@ public class MenuItem {
     return description;
   }
 
-  public int getPrice() {
+  public long getPrice() {
     return price;
   }
 
