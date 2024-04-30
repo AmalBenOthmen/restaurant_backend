@@ -10,9 +10,7 @@ public class MenuItem {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-
   private String name;
-
   private String description;
   private int price;
 
