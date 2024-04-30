@@ -12,7 +12,7 @@ import com.example.backendrestaurant.models.Commande;
 public interface CommandeRepository extends JpaRepository<Commande, Long> {
 
 	/*@Query("SELECT c from Commande c WHERE user_id= ?1")
-	public List<Commande> findMesCommande(Long id);*/
+	public List<Commande> findMesCommandes(Long id);*/
 	
 	
 

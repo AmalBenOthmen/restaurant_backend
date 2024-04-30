@@ -1,5 +1,6 @@
 package com.example.backendrestaurant.controllers;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.backendrestaurant.models.Commande;
 import com.example.backendrestaurant.repository.CommandeRepository;
 import com.example.backendrestaurant.security.service.CommandeService;
+import com.example.backendrestaurant.models.Commande;
 
 
 @RestController
@@ -33,8 +34,8 @@ public class CommandeController {
 	}
 
 	
-	/*@GetMapping("/mescommande/{id}")
+	/*@GetMapping("/mescommandes/{id}")
 	public List<Commande> getAllByid(@PathVariable Long id) {
-		return commandeRepository.findMesCommande(id);
+		return commandeRepository.findMesCommandes(id);
 	}*/
 }
