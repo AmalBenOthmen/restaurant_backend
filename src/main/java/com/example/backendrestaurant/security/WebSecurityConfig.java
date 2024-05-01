@@ -89,6 +89,32 @@ public class WebSecurityConfig {
 
                         .requestMatchers("/api/admin/reservation/{reservationId}/{status}/**").permitAll()
 
+                        .requestMatchers("/api/test/**").permitAll()
+                         .requestMatchers("/api/client/**").permitAll()
+                        .requestMatchers("/api/categorie/**").permitAll()
+                        .requestMatchers("/api/menuitems/**").permitAll() 
+                        .requestMatchers("/chef/**").permitAll()
+                        .requestMatchers("/commande/**").permitAll()
+
+
+
+            			
+
+                               
+
+
+
+                        
+
+            			      
+                       
+                        
+                          
+
+
+                         
+
+
 
 
                              .requestMatchers("/api/test/**").permitAll()
@@ -99,6 +125,7 @@ public class WebSecurityConfig {
 
 
                         .requestMatchers("/chef/**").permitAll()
+
 
 
                           .requestMatchers("/api/menu/**").permitAll()

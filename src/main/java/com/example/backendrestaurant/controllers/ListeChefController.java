@@ -29,7 +29,11 @@ public class ListeChefController {
 	private ListeChefService listeChefService;
 	
 	@Autowired
+
+	private ListeChefRepository listeChefRepository;
+
 	private ListeChefRepository listeChefrepository;
+
 	
 	@GetMapping(path="/all")
 	public List<ListeChef> getAllChef() {
@@ -51,7 +55,7 @@ public class ListeChefController {
 	public ListeChef createChef(@RequestBody ListeChef listeChef) {
 		return listeChefService.createChef(listeChef);
 	}
-	
+
 	@PutMapping
 	public ListeChef updateChef(@RequestBody ListeChef listeChef) {
 		return listeChefService.updateChef(listeChef);
