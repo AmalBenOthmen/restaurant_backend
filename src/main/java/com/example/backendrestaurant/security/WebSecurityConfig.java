@@ -98,6 +98,17 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/menuitems/**").permitAll()
 
 
+                        .requestMatchers("/chef/**").permitAll()
+
+
+                          .requestMatchers("/api/menu/**").permitAll()
+                          
+                          .requestMatchers("/api/wishlist/**").permitAll()
+
+                          
+                          .anyRequest().authenticated()
+
+
 
                                 .requestMatchers("/api/cart/**").permitAll()
 
@@ -127,6 +138,7 @@ public class WebSecurityConfig {
 
 
                                 .anyRequest().authenticated()
+
 
                 );
 
