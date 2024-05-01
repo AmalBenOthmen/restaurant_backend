@@ -1,18 +1,18 @@
 package com.example.backendrestaurant.controllers;
 
-import com.example.backendrestaurant.models.ERole;
-import com.example.backendrestaurant.models.Role;
-import com.example.backendrestaurant.models.User;
+import com.example.backendrestaurant.models.*;
 import com.example.backendrestaurant.payload.request.LoginRequest;
 import com.example.backendrestaurant.payload.request.SignupRequest;
 import com.example.backendrestaurant.payload.response.JwtResponse;
 import com.example.backendrestaurant.payload.response.MessageResponse;
+import com.example.backendrestaurant.repository.OrderRepository;
 import com.example.backendrestaurant.repository.RoleRepository;
 import com.example.backendrestaurant.repository.UserRepository;
 import com.example.backendrestaurant.security.jwt.JwtUtils;
 import com.example.backendrestaurant.security.service.UserDetailsImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -45,6 +46,8 @@ public class AuthController {
 
     @Autowired
     JwtUtils jwtUtils;
+    @Autowired
+    private OrderRepository orderRepository;
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -107,6 +110,22 @@ public class AuthController {
                         roles.add(userRole);
                 }
             });
+            Optional<User> userOptional = userRepository.findByUsername(user.getUsername());
+
+            if(userOptional.isPresent()) {
+                // Create the order and set the user
+                Order order = new Order();
+                order.setAmount(0L);
+                order.setTotalAmount(0L);
+                order.setDiscount(0L);
+                order.setUser(userOptional.get()); // Set the user who is authenticated
+                order.setOrderStatus(OrderStatus.Pending);
+                orderRepository.save(order);
+            } else {
+                // Handle the case when the user is not found
+                // You can throw an exception, return an error response, or handle it based on your application's requirements
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+            }
 
         }
 
@@ -115,4 +134,5 @@ public class AuthController {
 
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
+
 }

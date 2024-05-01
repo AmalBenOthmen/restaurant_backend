@@ -1,11 +1,19 @@
 package com.example.backendrestaurant.models;
 
+
 import java.io.Serializable;
 
 import jakarta.persistence.*;
 
 @Entity
 public class ListeChef implements Serializable {
+
+import jakarta.persistence.*;
+
+@Entity
+public class ListeChef  {
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long Id ;
@@ -14,12 +22,16 @@ public class ListeChef implements Serializable {
 	private String Description ;
 	private String image;
 	private String facebook;
+
 	private String instagram; 
 	
 	
 	public ListeChef() {
 	}
 	
+
+	private String instagram;
+
 	public long getId() {
 		return Id;
 	}
@@ -32,7 +44,7 @@ public class ListeChef implements Serializable {
 	public void setNomPrenom(String nomPrenom) {
 		NomPrenom = nomPrenom;
 	}
-	
+
 	public String getTypeC() {
 		return typeC;
 	}
@@ -51,7 +63,7 @@ public class ListeChef implements Serializable {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+
 	public String getFacebook() {
 		return facebook;
 	}
@@ -65,6 +77,10 @@ public class ListeChef implements Serializable {
 		this.instagram = instagram;
 	}
 
+	public ListeChef() {
+		super();
+	}
+
 	@Override
 	public String toString() {
 		return "ListeChef [Id=" + Id + ", NomPrenom=" + NomPrenom + ", typeC=" + typeC + ", Description=" + Description
@@ -73,10 +89,4 @@ public class ListeChef implements Serializable {
 	
 	
 	
-	
-
-	
-
-
-}
 

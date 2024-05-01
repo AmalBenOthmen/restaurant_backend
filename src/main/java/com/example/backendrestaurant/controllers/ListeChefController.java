@@ -29,7 +29,11 @@ public class ListeChefController {
 	private ListeChefService listeChefService;
 	
 	@Autowired
+
 	private ListeChefRepository listeChefRepository;
+
+	private ListeChefRepository listeChefrepository;
+
 	
 	@GetMapping(path="/all")
 	public List<ListeChef> getAllChef() {

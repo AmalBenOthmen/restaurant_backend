@@ -1,12 +1,14 @@
 package com.example.backendrestaurant.repository;
 
-import com.example.backendrestaurant.models.MenuItem;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import com.example.backendrestaurant.models.Wishlist;
 
 @Repository
-public interface MenuItemRepository extends JpaRepository<MenuItem,Long> {
+public interface WishlistRepository extends JpaRepository<Wishlist, Long> {
+
 
 }
