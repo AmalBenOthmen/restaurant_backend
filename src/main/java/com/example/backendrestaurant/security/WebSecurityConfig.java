@@ -78,7 +78,15 @@ public class WebSecurityConfig {
                          .requestMatchers("/api/client/**").permitAll()
                         .requestMatchers("/api/categorie/**").permitAll()
                         .requestMatchers("/api/menuitems/**").permitAll()
+
+                        .requestMatchers("/chef/**").permitAll()
+
+
                           .requestMatchers("/api/menu/**").permitAll()
+                          
+                          .requestMatchers("/api/wishlist/**").permitAll()
+
+                          
                           .anyRequest().authenticated()
                 );
 
