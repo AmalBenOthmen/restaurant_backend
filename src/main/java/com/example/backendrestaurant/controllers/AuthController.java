@@ -5,7 +5,6 @@ import com.example.backendrestaurant.payload.request.LoginRequest;
 import com.example.backendrestaurant.payload.request.SignupRequest;
 import com.example.backendrestaurant.payload.response.JwtResponse;
 import com.example.backendrestaurant.payload.response.MessageResponse;
-import com.example.backendrestaurant.repository.OrderRepository;
 import com.example.backendrestaurant.repository.RoleRepository;
 import com.example.backendrestaurant.repository.UserRepository;
 import com.example.backendrestaurant.security.jwt.JwtUtils;
@@ -46,8 +45,6 @@ public class AuthController {
 
     @Autowired
     JwtUtils jwtUtils;
-    @Autowired
-    private OrderRepository orderRepository;
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
@@ -112,21 +109,7 @@ public class AuthController {
             });
             Optional<User> userOptional = userRepository.findByUsername(user.getUsername());
 
-            if(userOptional.isPresent()) {
-                // Create the order and set the user
-                Order order = new Order();
-                order.setAmount(0L);
-                order.setTotalAmount(0L);
-                order.setDiscount(0L);
-                order.setUser(userOptional.get()); // Set the user who is authenticated
-                order.setOrderStatus(OrderStatus.Pending);
-                orderRepository.save(order);
-            } else {
-                // Handle the case when the user is not found
-                // You can throw an exception, return an error response, or handle it based on your application's requirements
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
-            }
-
+ 
         }
 
         user.setRoles(roles);

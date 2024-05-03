@@ -75,7 +75,7 @@ public class WebSecurityConfig {
 
             			.requestMatchers("/api/client/**").permitAll()
 
-                                .requestMatchers("/api/categorie/**").permitAll()
+                          .requestMatchers("/api/categorie/**").permitAll()
 
 
 
@@ -103,41 +103,13 @@ public class WebSecurityConfig {
 
                           .requestMatchers("/api/menu/**").permitAll()
                           
-                          .requestMatchers("/api/wishlist/**").permitAll()
-
-                          
+                          .requestMatchers("/api/wishlist/**").permitAll()                         
                           .anyRequest().authenticated()
 
+                           .requestMatchers("/api/cart/**").permitAll()
 
-
-                                .requestMatchers("/api/cart/**").permitAll()
-
-                        .requestMatchers("/chef/**").permitAll()
-
-
-
-
-
-
-            			
-
-                               
-
-
-
-                        
-
-            			      
-                       
-                        
-                          
-
-
-                         
-                          .requestMatchers("/api/menu/**").permitAll()
-
-
-                                .anyRequest().authenticated()
+                        .requestMatchers("/chef/**").permitAll()                                                                                      
+                        .requestMatchers("/api/menu/**").permitAll()
 
 
                 );
