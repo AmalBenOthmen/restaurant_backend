@@ -95,6 +95,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/menuitems/**").permitAll() 
                         .requestMatchers("/chef/**").permitAll()
                         .requestMatchers("/commande/**").permitAll()
+                                .requestMatchers("/api/wishlist/**").permitAll()
 
 
 
@@ -131,39 +132,8 @@ public class WebSecurityConfig {
                           .requestMatchers("/api/menu/**").permitAll()
                           
                           .requestMatchers("/api/wishlist/**").permitAll()
-
-                          
-                          .anyRequest().authenticated()
-
-
-
-                               
-
-                        .requestMatchers("/chef/**").permitAll()
-
-
-
-
-
-
-            			
-
-                               
-
-
-
-                        
-
-            			      
-                       
-                        
-                          
-
-
-                         
-                          .requestMatchers("/api/menu/**").permitAll()
-
-
+                                .requestMatchers("/chef/**").permitAll()
+                                .requestMatchers("/api/menu/**").permitAll()
                                 .anyRequest().authenticated()
 
 

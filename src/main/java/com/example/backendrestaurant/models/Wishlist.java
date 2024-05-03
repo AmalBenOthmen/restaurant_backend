@@ -38,7 +38,7 @@ public class Wishlist {
 		//wishlistDto.setImage(menuItem.getImage());
 		wishlistDto.setName(menuItem.getName());
 		wishlistDto.setDescription(menuItem.getDescription());
-		wishlistDto.setPrice(menuItem.getPrice());
+		//wishlistDto.setPrice(menuItem.getPrice());
 		wishlistDto.setUserId(user.getId());
 		
 		return wishlistDto;

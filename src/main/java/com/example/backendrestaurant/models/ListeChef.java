@@ -8,10 +8,9 @@ import jakarta.persistence.*;
 @Entity
 public class ListeChef implements Serializable {
 
-import jakarta.persistence.*;
 
-@Entity
-public class ListeChef  {
+
+
 
 
 	@Id
@@ -26,11 +25,10 @@ public class ListeChef  {
 	private String instagram; 
 	
 	
-	public ListeChef() {
-	}
+
 	
 
-	private String instagram;
+
 
 	public long getId() {
 		return Id;
@@ -85,7 +83,7 @@ public class ListeChef  {
 	public String toString() {
 		return "ListeChef [Id=" + Id + ", NomPrenom=" + NomPrenom + ", typeC=" + typeC + ", Description=" + Description
 				+ ", image=" + image + ", facebook=" + facebook + ", instagram=" + instagram + "]";
-	}
+	}}
 	
 	
 	
