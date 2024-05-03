@@ -46,7 +46,6 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
-
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -109,8 +108,6 @@ public class AuthController {
                 }
             });
             Optional<User> userOptional = userRepository.findByUsername(user.getUsername());
-
-
 
         }
 

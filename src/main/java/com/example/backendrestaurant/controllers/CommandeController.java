@@ -34,8 +34,8 @@ public class CommandeController {
 	}
 
 	
-	/*@GetMapping("/mescommandes/{id}")
+	@GetMapping("/mescommandes/{id}")
 	public List<Commande> getAllByid(@PathVariable Long id) {
 		return commandeRepository.findMesCommandes(id);
-	}*/
+	}
 }
