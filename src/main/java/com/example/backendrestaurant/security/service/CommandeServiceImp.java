@@ -31,9 +31,6 @@ public class CommandeServiceImp implements CommandeService {
 	public void passercommande( Long iduser, Long idmenuItem) {
 		User user =userRepository.findById(iduser).get();
 		MenuItem menuItem =menuItemRepository.findById(idmenuItem).get();
-
-
-
 		Commande cmd = new Commande();
 		
 		cmd.setUser(user);
@@ -42,12 +39,4 @@ public class CommandeServiceImp implements CommandeService {
 		commandeRepository.save(cmd);
 	}
 	
-	
-	
-
-
-
-	
-
-
 }
