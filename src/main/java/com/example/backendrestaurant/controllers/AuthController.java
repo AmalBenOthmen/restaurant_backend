@@ -109,7 +109,6 @@ public class AuthController {
             });
             Optional<User> userOptional = userRepository.findByUsername(user.getUsername());
 
- 
         }
 
         user.setRoles(roles);
