@@ -99,7 +99,7 @@ public class WebSecurityConfig {
 
 
 
-                                .requestMatchers("/api/cart/**").permitAll()
+                               
 
                         .requestMatchers("/chef/**").permitAll()
 
