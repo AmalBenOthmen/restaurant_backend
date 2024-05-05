@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.backendrestaurant.dto.ReservationDto;
 import com.example.backendrestaurant.models.Reservation;
+import com.example.backendrestaurant.repository.ReservationRepository;
 import com.example.backendrestaurant.security.service.ReservationService;
 
 import jakarta.validation.ValidationException;
@@ -27,6 +29,10 @@ import jakarta.validation.ValidationException;
 public class ReservationController {
 	  @Autowired
 	  private ReservationService reservationService;
+	  
+		@Autowired
+		private ReservationRepository reservationRepository;
+
 
 	
 	  @PostMapping("/client/reservation")
@@ -61,6 +67,23 @@ public class ReservationController {
 		  ReservationDto updateReservationDto=reservationService.changeReservationStatus(reservationId ,status);
 		  if (updateReservationDto == null) return ResponseEntity.notFound().build();
 		  return ResponseEntity.ok(updateReservationDto) ;
+	  }
+	  @GetMapping("/CountPendingReservations")
+	  @ResponseBody
+	  public Long countPendingReservations() {
+	      return reservationRepository.countPendingReservations();
+	  }
+	  
+	  @GetMapping("/CountAPPROVEDReservations")
+	  @ResponseBody
+	  public Long countAPPROVEDReservations() {
+	      return reservationRepository.countAPPROVEDReservations();
+	  }
+	  	  
+	  @GetMapping("/CountDISAPPROVEReservations")
+	  @ResponseBody
+	  public Long countDISAPPROVEReservations() {
+	      return reservationRepository.countDISAPPROVEReservations();
 	  }
 	
 	
