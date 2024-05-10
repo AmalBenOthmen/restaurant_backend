@@ -9,26 +9,14 @@ import jakarta.persistence.*;
 public class ListeChef implements Serializable {
 
 
-
-
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long Id ;
 	private String NomPrenom;
-	private String typeC;
 	private String Description ;
 	private String image;
 	private String facebook;
-
 	private String instagram; 
-	
-	
-
-	
-
-
 
 	public long getId() {
 		return Id;
@@ -43,12 +31,7 @@ public class ListeChef implements Serializable {
 		NomPrenom = nomPrenom;
 	}
 
-	public String getTypeC() {
-		return typeC;
-	}
-	public void setTypeC(String typeC) {
-		this.typeC = typeC;
-	}
+
 	public String getDescription() {
 		return Description;
 	}
@@ -81,7 +64,7 @@ public class ListeChef implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ListeChef [Id=" + Id + ", NomPrenom=" + NomPrenom + ", typeC=" + typeC + ", Description=" + Description
+		return "ListeChef [Id=" + Id + ", NomPrenom=" + NomPrenom + ",  Description=" + Description
 				+ ", image=" + image + ", facebook=" + facebook + ", instagram=" + instagram + "]";
 	}}
 	

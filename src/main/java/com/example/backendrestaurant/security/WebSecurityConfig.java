@@ -70,32 +70,18 @@ public class WebSecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/api/auth/**").permitAll()
-
-
-
             			.requestMatchers("/api/client/**").permitAll()
-
-                                .requestMatchers("/api/categorie/**").permitAll()
-
-
-
+                          .requestMatchers("/api/categorie/**").permitAll()
                         .requestMatchers("/api/utilisateur/**").permitAll()
-
-
-
             			.requestMatchers("/api/**").permitAll()
-
-            			      .requestMatchers("/api/**").permitAll()
-
                         .requestMatchers("/api/admin/reservation/{reservationId}/{status}/**").permitAll()
-
                         .requestMatchers("/api/test/**").permitAll()
                          .requestMatchers("/api/client/**").permitAll()
                         .requestMatchers("/api/categorie/**").permitAll()
                         .requestMatchers("/api/menuitems/**").permitAll() 
                         .requestMatchers("/chef/**").permitAll()
                         .requestMatchers("/commande/**").permitAll()
-                                .requestMatchers("/api/wishlist/**").permitAll()
+                         .requestMatchers("/api/wishlist/**").permitAll()
 
 
 
