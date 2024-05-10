@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.backendrestaurant.models.Categorie;
 import com.example.backendrestaurant.models.ListeChef;
 import com.example.backendrestaurant.repository.ListeChefRepository;
 import com.example.backendrestaurant.security.service.ListeChefService;
@@ -32,7 +33,6 @@ public class ListeChefController {
 
 	private ListeChefRepository listeChefRepository;
 
-	private ListeChefRepository listeChefrepository;
 
 	
 	@GetMapping(path="/all")
@@ -51,12 +51,13 @@ public class ListeChefController {
 		}
 	}
 	
-	@PostMapping
+	@PostMapping("/addChef")
 	public ListeChef createChef(@RequestBody ListeChef listeChef) {
 		return listeChefService.createChef(listeChef);
 	}
+	
 
-	@PutMapping
+	@PutMapping("/updateChef/{id}")
 	public ListeChef updateChef(@RequestBody ListeChef listeChef) {
 		return listeChefService.updateChef(listeChef);
 				
