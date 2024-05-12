@@ -83,43 +83,8 @@ public class WebSecurityConfig {
                         .requestMatchers("/commande/**").permitAll()
                          .requestMatchers("/api/wishlist/**").permitAll()
 
-
-
-            			
-
-                               
-
-
-
-                        
-
-            			      
-                       
-                        
-                          
-
-
-                         
-
-
-
-
-                             .requestMatchers("/api/test/**").permitAll()
-
-
-
-                        .requestMatchers("/api/menuitems/**").permitAll()
-
-
-                        .requestMatchers("/chef/**").permitAll()
-
-
-
-                          .requestMatchers("/api/menu/**").permitAll()
-                          
-                          .requestMatchers("/api/wishlist/**").permitAll()
-                                .requestMatchers("/chef/**").permitAll()
                                 .requestMatchers("/api/menu/**").permitAll()
+
                                 .anyRequest().authenticated()
 
 

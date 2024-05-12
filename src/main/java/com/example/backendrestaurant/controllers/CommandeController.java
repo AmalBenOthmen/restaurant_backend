@@ -3,12 +3,11 @@ package com.example.backendrestaurant.controllers;
 
 import java.util.List;
 
+import com.example.backendrestaurant.dto.CommandeDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.backendrestaurant.repository.CommandeRepository;
 import com.example.backendrestaurant.security.service.CommandeService;
@@ -24,13 +23,21 @@ public class CommandeController {
     
 	@Autowired
 	private CommandeRepository commandeRepository;
-	
 
 
-	@PostMapping(value = "/passer/{iduser}/{idmenuItem}")
-	public void Commande(@PathVariable("iduser") Long iduser, @PathVariable("idmenuItem") Long idmenuItem) {
 
-		commandeService.passercommande(iduser, idmenuItem);
+	@PostMapping("/passer")
+	public ResponseEntity<?> passerCommande(@RequestBody CommandeDto commandeDto) {
+		try {
+			// Créer une commande en utilisant les détails de la commande reçus
+			Commande nouvelleCommande = commandeService.passercommande(commandeDto);
+
+			// Si la commande est créée avec succès, renvoyer une réponse HTTP 201 (CREATED) avec la commande créée
+			return ResponseEntity.status(HttpStatus.CREATED).body(nouvelleCommande);
+		} catch (Exception e) {
+			// Si une erreur se produit pendant le traitement de la commande, renvoyer une réponse HTTP 500 (INTERNAL SERVER ERROR)
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Une erreur s'est produite lors du traitement de la commande.");
+		}
 	}
 
 	
@@ -38,4 +45,13 @@ public class CommandeController {
 	public List<Commande> getAllByid(@PathVariable Long id) {
 		return commandeRepository.findMesCommandes(id);
 	}
-}
+	@PutMapping("/admin/accepter/{id}")
+	public void accepterCommande(@PathVariable Long id) {
+		commandeService.accepterCommande(id);
+	}
+
+	@PutMapping("/admin/refuser/{id}")
+	public void refuserCommande(@PathVariable Long id) {
+		commandeService.refuserCommande(id);
+	}}
+
