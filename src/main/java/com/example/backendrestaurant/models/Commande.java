@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-
+import com.example.backendrestaurant.dto.CommandeDto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -97,6 +97,16 @@ public class Commande implements Serializable {
 
 
 
+	public CommandeDto getCommandeDto() {
+		CommandeDto commandeDto = new CommandeDto();
+		commandeDto.setId(id);
+		commandeDto.setDatedecommande(datedecommande);
+		commandeDto.setCommandeStatus(commandeStatus);
+		commandeDto.setUserId(user.getId());
+		commandeDto.setMenuItemId(menuItem.getId());
+
+		return commandeDto;
+	}
 
 
 

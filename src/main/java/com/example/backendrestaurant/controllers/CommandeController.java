@@ -45,6 +45,17 @@ public class CommandeController {
 	public List<Commande> getAllByid(@PathVariable Long id) {
 		return commandeRepository.findMesCommandes(id);
 	}
+	@GetMapping("/admin/toutescommandes")
+
+	public ResponseEntity<List<Commande>> getAllCommandes() {
+		List<Commande> commandes = commandeRepository.findAll();
+		if (commandes.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		} else {
+			return ResponseEntity.ok(commandes);
+		}
+	}
+
 	@PutMapping("/admin/accepter/{id}")
 	public void accepterCommande(@PathVariable Long id) {
 		commandeService.accepterCommande(id);

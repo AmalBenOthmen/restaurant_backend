@@ -12,7 +12,11 @@ public interface CommandeService {
 			Long idmenuItem);
 
 
-	void accepterCommande(Long id);
+    List<Commande> getAllCommandes();
+
+    List<CommandeDto> getCommandes();
+
+    void accepterCommande(Long id);
 
 	void refuserCommande(Long id);
 

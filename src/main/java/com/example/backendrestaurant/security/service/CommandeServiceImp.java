@@ -1,7 +1,9 @@
 package com.example.backendrestaurant.security.service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.example.backendrestaurant.dto.CommandeDto;
 import com.example.backendrestaurant.models.CommandeStatus;
@@ -40,6 +42,17 @@ public class CommandeServiceImp implements CommandeService {
 		cmd.setDatedecommande(new Date());
 		commandeRepository.save(cmd);
 	}
+
+	@Override
+	public List<Commande> getAllCommandes() {
+		return null;
+	}
+
+	@Override
+	public List<CommandeDto> getCommandes() {
+		return commandeRepository.findAll().stream().map(Commande::getCommandeDto).collect(Collectors.toList());
+	}
+
 
 	@Override
 	public void accepterCommande(Long id) {
