@@ -57,12 +57,13 @@ public class CommandeController {
 	}
 
 	@PutMapping("/admin/accepter/{id}")
-	public void accepterCommande(@PathVariable Long id) {
+	public ResponseEntity<?> accepterCommande(@PathVariable Long id) {
 		commandeService.accepterCommande(id);
+		return ResponseEntity.ok().build(); // Renvoie une réponse 200 OK avec un corps vide
 	}
 
 	@PutMapping("/admin/refuser/{id}")
-	public void refuserCommande(@PathVariable Long id) {
+	public ResponseEntity<?> refuserCommande(@PathVariable Long id) {
 		commandeService.refuserCommande(id);
+		return ResponseEntity.ok().build(); // Renvoie une réponse 200 OK avec un corps vide
 	}}
-
