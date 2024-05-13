@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.backendrestaurant.models.Categorie;
 import com.example.backendrestaurant.models.ListeChef;
 import com.example.backendrestaurant.repository.ListeChefRepository;
 import com.example.backendrestaurant.security.service.ListeChefService;
