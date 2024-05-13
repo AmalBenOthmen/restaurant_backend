@@ -33,7 +33,6 @@ public class CommandeController {
 		commandeService.passercommande(iduser, idmenuItem);
 	}
 
-	
 	@GetMapping("/mescommandes/{id}")
 	public List<Commande> getAllByid(@PathVariable Long id) {
 		return commandeRepository.findMesCommandes(id);
